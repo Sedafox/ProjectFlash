@@ -14,9 +14,11 @@ public class Kanji : MonoBehaviour
 
     public string englishTranslation { get; set; }
 
+    private string currentCardKanji { get; set; }
+
     public List<string> myLearnedKanjis = new List<string>();
 
-    public string findKanjiDefintion(string currentKanji)
+    public string findKanjiDef(string currentKanji, string desiredOutput)
     {
         var kanjis =
             new []
@@ -33,13 +35,29 @@ public class Kanji : MonoBehaviour
                 }
             };
 
-        string KanjiMeaning =
+        string kanjiMeaning =
             (
             from k in kanjis
             where k.textKanji == currentKanji select k.englishTranslation
             ).First();
 
-        return KanjiMeaning;
+        string kanjiHiragana =
+            (
+            from k in kanjis where k.textKanji == currentKanji select k.Hiragana
+            ).First();
+
+        if (desiredOutput == "hiragana")
+        {
+            return kanjiHiragana;
+        }
+        else if (desiredOutput == "english")
+        {
+            return kanjiMeaning;
+        }
+        else
+        {
+            return "Sorry, please enter either hiragana or english into the findKanjiDefinition function";
+        }
     }
 
     public void addTolearnedKanjis(string newKanji)
@@ -52,7 +70,18 @@ public class Kanji : MonoBehaviour
         var random = new System.Random();
 
         int index = random.Next(myLearnedKanjis.Count);
+        currentCardKanji = myLearnedKanjis[index];
         return myLearnedKanjis[index];
+    }
+
+    public string hiraganaAnswer()
+    {
+        return findKanjiDef(currentCardKanji, "hiragana");
+    }
+
+    public string englishTranslationAnswer()
+    {
+        return findKanjiDef(currentCardKanji, "english");
     }
 
     void Start()

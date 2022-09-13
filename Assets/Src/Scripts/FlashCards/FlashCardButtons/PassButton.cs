@@ -33,6 +33,7 @@ public class PassButton : MonoBehaviour
             ", Fail: " +
             cardManager.numOfFail);
         cardManager.closeFlashCard();
+        cardManager.hideAnswers();
 
         //Enemy Health -1
         enemyManager.currentHealth -= 1;

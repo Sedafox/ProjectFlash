@@ -18,10 +18,17 @@ public class CardManager : MonoBehaviour
 
     public GameObject FlashCardCanvas;
 
+    public GameObject AnswerPanel;
+
+    public TextMeshProUGUI hiraganaAnswerText;
+
+    public TextMeshProUGUI englishTranslationAnswerText;
+
     // Start is called before the first frame update
     void Start()
     {
         Kanji.addTolearnedKanjis("本");
+        Kanji.addTolearnedKanjis("水");
         flashCardText.text = Kanji.returnRandomLearnedKanji();
     }
 
@@ -38,6 +45,18 @@ public class CardManager : MonoBehaviour
     public void closeFlashCard()
     {
         FlashCardCanvas.SetActive(false);
+    }
+
+    public void showAnswers()
+    {
+        hiraganaAnswerText.text = Kanji.hiraganaAnswer();
+        englishTranslationAnswerText.text = Kanji.englishTranslationAnswer();
+        AnswerPanel.gameObject.SetActive(true);
+    }
+
+    public void hideAnswers()
+    {
+        AnswerPanel.gameObject.SetActive(false);
     }
 
     public void saveFlashCard()

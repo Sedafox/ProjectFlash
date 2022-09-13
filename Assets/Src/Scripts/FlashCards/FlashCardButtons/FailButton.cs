@@ -31,5 +31,6 @@ public class FailButton : MonoBehaviour
             ", Fail: " +
             cardManager.numOfFail);
         cardManager.closeFlashCard();
+        cardManager.hideAnswers();
     }
 }
