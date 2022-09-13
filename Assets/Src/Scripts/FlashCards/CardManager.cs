@@ -64,13 +64,15 @@ public class CardManager : MonoBehaviour
     {
         if (Kanji.myLearnedKanjis != null)
         {
-            File.WriteAllLines("MyLearnedKanjis_test2", Kanji.myLearnedKanjis);
+            File
+                .WriteAllLines("MyLearnedKanjis_test2.save",
+                Kanji.myLearnedKanjis);
         }
     }
 
     public void loadAllLearnedKanjiFromFile()
     {
         Kanji.myLearnedKanjis =
-            File.ReadAllLines("MyLearnedKanjis_test2").ToList();
+            File.ReadAllLines("MyLearnedKanjis_test2.save").ToList();
     }
 }
