@@ -29,6 +29,7 @@ public class CardManager : MonoBehaviour
     {
         Kanji.addTolearnedKanjis("本");
         Kanji.addTolearnedKanjis("水");
+        Kanji.addTolearnedKanjis("ステキ");
         flashCardText.text = Kanji.returnRandomLearnedKanji();
     }
 
