@@ -25,13 +25,20 @@ public class Kanji : MonoBehaviour
             {
                 new Kanji {
                     textKanji = "本",
-                    Hiragana = "ひらがな",
-                    englishTranslation = "Book"
+                    Hiragana = "ほん",
+                    englishTranslation = "book; volume; script​"
                 },
                 new Kanji {
                     textKanji = "水",
                     Hiragana = "みず",
-                    englishTranslation = "Water"
+                    englishTranslation =
+                        "water (esp. cool, fresh water, e.g. drinking water)​"
+                },
+                new Kanji {
+                    textKanji = "ステキ",
+                    Hiragana = "",
+                    englishTranslation =
+                        "lovely; wonderful; nice; great; fantastic; superb; cool​"
                 }
             };
 
