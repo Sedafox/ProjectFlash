@@ -4,9 +4,11 @@ ScriptsOnlyBuild:
     - CardManager
     - ContinueButton
     - EnemyManager
+    - EscapeMenu
     - FailButton
     - Kanji
     - PassButton
+    - ResumeFromESCPMenu
     Unity.Rider.Editor.dll:
     - Packages.Rider.Editor.UnitTesting.CallbackData
     Unity.TextMeshPro.dll:
@@ -25,8 +27,21 @@ ScriptsOnlyBuild:
     - UnityEngine.EventSystems.StandaloneInputModule
     - UnityEngine.UI.Button
     - UnityEngine.UI.CanvasScaler
+    - UnityEngine.UI.Dropdown
     - UnityEngine.UI.GraphicRaycaster
+    - UnityEngine.UI.GridLayoutGroup
+    - UnityEngine.UI.HorizontalLayoutGroup
     - UnityEngine.UI.Image
+    - UnityEngine.UI.InputField
+    - UnityEngine.UI.LayoutElement
+    - UnityEngine.UI.Mask
+    - UnityEngine.UI.ScrollRect
+    - UnityEngine.UI.Scrollbar
+    - UnityEngine.UI.Slider
+    - UnityEngine.UI.Text
+    - UnityEngine.UI.Toggle
+    - UnityEngine.UI.ToggleGroup
+    - UnityEngine.UI.VerticalLayoutGroup
   serializedClasses:
     Unity.TextMeshPro:
     - TMPro.FaceInfo_Legacy
@@ -45,7 +60,10 @@ ScriptsOnlyBuild:
     - TMPro.TMP_Style
     - TMPro.VertexGradient
     UnityEngine.CoreModule:
+    - UnityEngine.Events.ArgumentCache
     - UnityEngine.Events.PersistentCallGroup
+    - UnityEngine.Events.PersistentListenerMode
+    - UnityEngine.RectOffset
     UnityEngine.TextCoreFontEngineModule:
     - UnityEngine.TextCore.FaceInfo
     - UnityEngine.TextCore.Glyph
@@ -55,12 +73,41 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.AnimationTriggers
     - UnityEngine.UI.Button/ButtonClickedEvent
     - UnityEngine.UI.ColorBlock
+    - UnityEngine.UI.Dropdown/DropdownEvent
+    - UnityEngine.UI.Dropdown/OptionData
+    - UnityEngine.UI.Dropdown/OptionDataList
+    - UnityEngine.UI.FontData
+    - UnityEngine.UI.InputField/EndEditEvent
+    - UnityEngine.UI.InputField/OnChangeEvent
+    - UnityEngine.UI.InputField/SubmitEvent
     - UnityEngine.UI.MaskableGraphic/CullStateChangedEvent
     - UnityEngine.UI.Navigation
+    - UnityEngine.UI.ScrollRect/ScrollRectEvent
+    - UnityEngine.UI.Scrollbar/ScrollEvent
+    - UnityEngine.UI.Slider/SliderEvent
     - UnityEngine.UI.SpriteState
-  methodsToPreserve: []
+    - UnityEngine.UI.Toggle/ToggleEvent
+  methodsToPreserve:
+  - assembly: UnityEngine.UI
+    fullTypeName: UnityEngine.UI.Image
+    methodName: set_fillAmount
+  - assembly: UnityEngine.UI
+    fullTypeName: UnityEngine.UI.Image
+    methodName: set_fillAmount
+  - assembly: Assembly-CSharp
+    fullTypeName: EscapeMenu
+    methodName: quitGame
+  - assembly: Assembly-CSharp
+    fullTypeName: CardManager
+    methodName: saveFlashCard
+  - assembly: Assembly-CSharp
+    fullTypeName: ResumeFromESCPMenu
+    methodName: resumeFromMenu
+  - assembly: Assembly-CSharp
+    fullTypeName: EscapeMenu
+    methodName: closeMenu
   sceneClasses:
-    Assets/PolygonDungeon/Scenes/Demo.unity:
+    Assets/MainScene.unity:
     - Class: 1
       Script: {instanceID: 0}
     - Class: 4
@@ -100,44 +147,76 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 1546}
     - Class: 114
-      Script: {instanceID: 2216}
+      Script: {instanceID: 1548}
     - Class: 114
-      Script: {instanceID: 2652}
+      Script: {instanceID: 1720}
     - Class: 114
-      Script: {instanceID: 2880}
+      Script: {instanceID: 2220}
     - Class: 114
-      Script: {instanceID: 2992}
+      Script: {instanceID: 2656}
     - Class: 114
-      Script: {instanceID: 3186}
+      Script: {instanceID: 2884}
     - Class: 114
-      Script: {instanceID: 3358}
+      Script: {instanceID: 2934}
     - Class: 114
-      Script: {instanceID: 4154}
+      Script: {instanceID: 3172}
     - Class: 114
-      Script: {instanceID: 4266}
+      Script: {instanceID: 3190}
     - Class: 114
-      Script: {instanceID: 4540}
+      Script: {instanceID: 3362}
     - Class: 114
-      Script: {instanceID: 4848}
+      Script: {instanceID: 4022}
     - Class: 114
-      Script: {instanceID: 5324}
+      Script: {instanceID: 4152}
     - Class: 114
-      Script: {instanceID: 5942}
+      Script: {instanceID: 4160}
     - Class: 114
-      Script: {instanceID: 6096}
+      Script: {instanceID: 4272}
     - Class: 114
-      Script: {instanceID: 6442}
+      Script: {instanceID: 4546}
     - Class: 114
-      Script: {instanceID: 6636}
+      Script: {instanceID: 4854}
     - Class: 114
-      Script: {instanceID: 6766}
+      Script: {instanceID: 4950}
     - Class: 114
-      Script: {instanceID: 7780}
+      Script: {instanceID: 5180}
+    - Class: 114
+      Script: {instanceID: 5246}
+    - Class: 114
+      Script: {instanceID: 5328}
+    - Class: 114
+      Script: {instanceID: 5376}
+    - Class: 114
+      Script: {instanceID: 5610}
+    - Class: 114
+      Script: {instanceID: 5948}
+    - Class: 114
+      Script: {instanceID: 6102}
+    - Class: 114
+      Script: {instanceID: 6448}
+    - Class: 114
+      Script: {instanceID: 6460}
+    - Class: 114
+      Script: {instanceID: 6642}
+    - Class: 114
+      Script: {instanceID: 6772}
+    - Class: 114
+      Script: {instanceID: 6896}
+    - Class: 114
+      Script: {instanceID: 7284}
+    - Class: 114
+      Script: {instanceID: 7584}
+    - Class: 114
+      Script: {instanceID: 7786}
+    - Class: 114
+      Script: {instanceID: 174068}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 124
       Script: {instanceID: 0}
     - Class: 128
+      Script: {instanceID: 0}
+    - Class: 137
       Script: {instanceID: 0}
     - Class: 157
       Script: {instanceID: 0}
@@ -166,6 +245,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Image
+  - hash:
+      serializedVersion: 2
+      Hash: 21a9c6dbf300fc1f6dc15ca7e2c39a37
+    assemblyName: UnityEngine.UI.dll
+    namespaceName: UnityEngine.UI
+    className: Slider
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -226,6 +311,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: TMPro.Examples
     className: SimpleScript
+  - hash:
+      serializedVersion: 2
+      Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ScreenShot
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -378,12 +469,6 @@ ScriptsOnlyBuild:
     className: TestResultRendererCallback
   - hash:
       serializedVersion: 2
-      Hash: a5eef9e0606201562ac3a4c3d5410f1e
-    assemblyName: Assembly-CSharp.dll
-    namespaceName: 
-    className: CardManager
-  - hash:
-      serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
@@ -438,7 +523,7 @@ ScriptsOnlyBuild:
     className: UnityOnScrollMessageListener
   - hash:
       serializedVersion: 2
-      Hash: d2d64180b337418904ad3056c90d6d6b
+      Hash: 7b8e131f34c2f1eb0817998f929dd465
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: EnemyManager
@@ -556,6 +641,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: Mask
+  - hash:
+      serializedVersion: 2
+      Hash: 0f1b5dfba49c3691254ce48d16e5d242
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: EscapeMenu
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -756,12 +847,6 @@ ScriptsOnlyBuild:
     className: GlobalMessageListener
   - hash:
       serializedVersion: 2
-      Hash: 21a9c6dbf300fc1f6dc15ca7e2c39a37
-    assemblyName: UnityEngine.UI.dll
-    namespaceName: UnityEngine.UI
-    className: Slider
-  - hash:
-      serializedVersion: 2
       Hash: 3164bc883ff663a5cdb32d1ef7e7c0c5
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -784,6 +869,12 @@ ScriptsOnlyBuild:
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
     className: TMP_FontAsset
+  - hash:
+      serializedVersion: 2
+      Hash: 9191d91d3d6a44ff80f169a5e2e94c14
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ResumeFromESCPMenu
   - hash:
       serializedVersion: 2
       Hash: 71bb6a6b6c8f052f948db64c7dd3ca4f
@@ -1074,7 +1165,7 @@ ScriptsOnlyBuild:
     className: ScrollRect
   - hash:
       serializedVersion: 2
-      Hash: 07d7d551936ee8e7c910fc14a88f811f
+      Hash: 3e2b0451fd67c139cd4aa14eacbfd893
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: ContinueButton
@@ -1180,7 +1271,13 @@ ScriptsOnlyBuild:
     assemblyName: Unity.VisualScripting.Core.dll
     namespaceName: Unity.VisualScripting
     className: UnityOnSliderValueChangedMessageListener
+  - hash:
+      serializedVersion: 2
+      Hash: b3098e8292ea8234873d52eb0be679e6
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CardManager
   platform: 24
   scenePathNames:
-  - Assets/PolygonDungeon/Scenes/Demo.unity
-  playerPath: /home/seda/Documents/GameTest.x86_64
+  - Assets/MainScene.unity
+  playerPath: /home/seda/Documents/AppImages/GameTest.x86_64
