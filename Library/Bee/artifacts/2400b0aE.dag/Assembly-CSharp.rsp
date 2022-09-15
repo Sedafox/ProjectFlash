@@ -358,6 +358,7 @@
 "Assets/Src/Scripts/FlashCards/FlashCardButtons/FailButton.cs"
 "Assets/Src/Scripts/FlashCards/FlashCardButtons/PassButton.cs"
 "Assets/Src/Scripts/FlashCards/Kanji.cs"
+"Assets/Src/Scripts/Title/PlayButton.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark01_UGUI.cs"
 "Assets/TextMesh Pro/Examples & Extras/Scripts/Benchmark02.cs"
