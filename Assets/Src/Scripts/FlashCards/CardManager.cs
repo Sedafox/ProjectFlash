@@ -31,6 +31,8 @@ public class CardManager : MonoBehaviour
 
     public TextMeshProUGUI englishTranslationAnswerText; //This referrences the text responsible for showing the english translation of the Kanji
 
+    public GameObject actionBar;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -73,10 +75,20 @@ public class CardManager : MonoBehaviour
         //Set the Answer Panel to not active
     }
 
+    public void showActionBar()
+    {
+        actionBar.gameObject.SetActive(true);
+    }
+
+    public void hideCActionBar()
+    {
+        actionBar.gameObject.SetActive(false);
+    }
+
     public void saveFlashCard() //This function is used to save the cards already learned. In the future, this function may be moved to a Save Data Class.
     {
         if (Kanji.myLearnedKanjis != null)
-        //We don't want to save anything to the file if the player hasn't learned any Kanji's yet
+        //We don't want to save anything to the file if the playit to the text on the answer carder hasn't learned any Kanji's yet
         {
             File
                 .WriteAllLines("MyLearnedKanjis_test2.save",
