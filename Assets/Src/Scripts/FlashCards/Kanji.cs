@@ -18,6 +18,8 @@ public class Kanji : MonoBehaviour
 
     public List<string> myLearnedKanjis = new List<string>();
 
+    public IEnumerable<String> allKanji;
+
     public string findKanjiDef(string currentKanji, string desiredOutput)
     {
         var kanjis =
@@ -39,8 +41,15 @@ public class Kanji : MonoBehaviour
                     Hiragana = "",
                     englishTranslation =
                         "lovely; wonderful; nice; great; fantastic; superb; cool"
+                },
+                new Kanji {
+                    textKanji = "車",
+                    Hiragana = "くるま",
+                    englishTranslation = "car"
                 }
             };
+
+        allKanji = from k in kanjis select k.textKanji;
 
         string kanjiMeaning =
             (
@@ -91,7 +100,16 @@ public class Kanji : MonoBehaviour
         return findKanjiDef(currentCardKanji, "english");
     }
 
-    void Start()
+    public void generateDictionary()
     {
+        //initalize dictionary
+        findKanjiDef("本", "hiragana");
+
+        //end initalization
+        foreach (String item in allKanji)
+        {
+            addTolearnedKanjis (item);
+            Debug.Log (item);
+        }
     }
 }

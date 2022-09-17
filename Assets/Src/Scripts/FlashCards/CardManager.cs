@@ -37,9 +37,7 @@ public class CardManager : MonoBehaviour
     void Start()
     {
         //Some Kanji need to be populated for the flash card to work
-        Kanji.addTolearnedKanjis("本");
-        Kanji.addTolearnedKanjis("水");
-        Kanji.addTolearnedKanjis("ステキ");
+        Kanji.generateDictionary();
 
         //In the future the player will obtain these Kanji naturally by playing the game
         //End of Test Data population
