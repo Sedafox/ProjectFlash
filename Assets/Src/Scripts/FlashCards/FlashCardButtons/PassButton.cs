@@ -9,6 +9,10 @@ public class PassButton : MonoBehaviour
 
     public EnemyManager enemyManager;
 
+    public Button continueButton;
+
+    public Button incorrectButton;
+
     public Button correctButton;
 
     // Start is called before the first frame update
@@ -27,15 +31,24 @@ public class PassButton : MonoBehaviour
     {
         Debug.Log("You clicked the Pass Button");
         cardManager.numOfPass++;
-        Debug
-            .Log("Pass: " +
-            cardManager.numOfPass +
-            ", Fail: " +
-            cardManager.numOfFail);
-        cardManager.closeFlashCard();
-        cardManager.hideAnswers();
+        cardManager.numOfTimesCardHasBeenShown++;
 
-        //Enemy Health -1
-        enemyManager.currentHealth -= 1;
+        if (cardManager.numOfTimesCardHasBeenShown == 3)
+        {
+            cardManager.closeFlashCard();
+            cardManager.hideAnswers();
+            cardManager.numOfTimesCardHasBeenShown = 0;
+
+            //Enemy Health -1
+            enemyManager.currentHealth -= 1;
+        }
+        else
+        {
+            cardManager.hideAnswers();
+            incorrectButton.gameObject.SetActive(false);
+            correctButton.gameObject.SetActive(false);
+            continueButton.gameObject.SetActive(true);
+            cardManager.displayNewKanji();
+        }
     }
 }

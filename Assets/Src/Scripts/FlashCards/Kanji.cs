@@ -83,10 +83,18 @@ public class Kanji : MonoBehaviour
 
     public string returnRandomLearnedKanji()
     {
+        var lastUsedKanji = currentCardKanji;
         var random = new System.Random();
 
         int index = random.Next(myLearnedKanjis.Count);
         currentCardKanji = myLearnedKanjis[index];
+        while (lastUsedKanji == currentCardKanji //if last used kanji is the same as the one just generated, too bad, pick a different one
+        )
+        {
+            random = new System.Random();
+            index = random.Next(myLearnedKanjis.Count);
+            currentCardKanji = myLearnedKanjis[index];
+        }
         return myLearnedKanjis[index];
     }
 
@@ -102,7 +110,7 @@ public class Kanji : MonoBehaviour
 
     public void generateDictionary()
     {
-        //initalize dictionary
+        //initalize dictionary (We have to initialize this)
         findKanjiDef("本", "hiragana");
 
         //end initalization

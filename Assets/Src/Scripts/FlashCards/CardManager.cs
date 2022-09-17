@@ -33,15 +33,24 @@ public class CardManager : MonoBehaviour
 
     public GameObject actionBar;
 
+    public int numOfTimesCardHasBeenShown;
+
     // Start is called before the first frame update
     void Start()
     {
+        numOfTimesCardHasBeenShown = 0;
+
         //Some Kanji need to be populated for the flash card to work
         Kanji.generateDictionary();
 
         //In the future the player will obtain these Kanji naturally by playing the game
         //End of Test Data population
-        flashCardText.text = Kanji.returnRandomLearnedKanji(); //We set the text of the flash card to a randomly learned Kanji (which was declared above)
+        displayNewKanji();
+    }
+
+    public void displayNewKanji()
+    {
+        flashCardText.text = Kanji.returnRandomLearnedKanji();
     }
 
     public void loadFlashCard() //This function is used for loading the flash card canvas
