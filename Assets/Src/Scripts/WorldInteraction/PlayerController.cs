@@ -41,7 +41,10 @@ public class PlayerController : MonoBehaviour
             movementDir.Normalize();
             float magnitude = Mathf.Clamp01(movementDir.magnitude * speed);
 
-            //  = Quaternion.AngleAxis(cameraTransform.rotation.eulerAngles, Vector3.up) * movementDir;
+            //small bug is that the character wants to continue rotating without any input going on. 
+            //The momentum of said rotation appears to be intensified after moving the character in opposite directions
+
+            movementDir = Quaternion.AngleAxis(cameraTransform.rotation.eulerAngles.y, Vector3.up) * movementDir;
             characterController.SimpleMove(movementDir*magnitude);
             
 
