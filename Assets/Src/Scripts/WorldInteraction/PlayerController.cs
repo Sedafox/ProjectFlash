@@ -7,15 +7,20 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour
 {
 
-    public int speed;
-    public int turnSpeed;
+    public float speed;
+    public int rotationSpeed;
+   
      public float horizontalInput;
     public float verticalInput;
+    private Vector3 movementDir;
+    public Transform cameraTransform;
+
+    private CharacterController characterController;
 
     // Start is called before the first frame update
     void Start()
     {
-        
+        characterController =GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
@@ -29,9 +34,23 @@ public class PlayerController : MonoBehaviour
        
         
             horizontalInput = Input.GetAxis("Horizontal");
-            transform.Rotate(Vector3.up * horizontalInput * Time.deltaTime * turnSpeed);
             verticalInput = Input.GetAxis("Vertical");
-            transform.Translate(Vector3.forward * verticalInput * Time.deltaTime * speed);
+
+            movementDir = new Vector3(horizontalInput, 0, verticalInput);
+
+            movementDir.Normalize();
+            float magnitude = Mathf.Clamp01(movementDir.magnitude * speed);
+
+            //  = Quaternion.AngleAxis(cameraTransform.rotation.eulerAngles, Vector3.up) * movementDir;
+            characterController.SimpleMove(movementDir*magnitude);
+            
+
+            if(movementDir!= Vector3.zero)
+            {
+              Quaternion toLocation = Quaternion.LookRotation(movementDir, Vector3.up);
+              transform.rotation =Quaternion.RotateTowards(transform.rotation,toLocation, rotationSpeed*Time.deltaTime);
+            }
+           
 
             
          
